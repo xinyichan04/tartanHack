@@ -85,7 +85,7 @@ h2 {
 .faq-question {
   width: 100%;
   padding: 15px;
-  background-color: #007BFF;
+  background-color: #FF5E94;
   color: white;
   border: none;
   cursor: pointer;
@@ -97,14 +97,14 @@ h2 {
 }
 
 .faq-question:hover {
-  background-color: #0056b3;
+  background-color: #F0ACAE;
 }
 
 .faq-answer {
   display: none;
   padding: 15px;
   background-color: #f9f9f9;
-  border-left: 3px solid #007BFF;
+  border-left: 3px solid #F0ACAE;
   font-size: 16px;
   color: #333;
 }
