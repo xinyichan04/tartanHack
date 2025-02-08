@@ -23,7 +23,7 @@ def send_report(path):
   return send_from_directory('src', path)
 
 @app.route('/output/<path:path>')
-def send_report(path):
+def send_audio_output(path):
   # Using request args for path will expose you to directory traversal attacks
   return send_from_directory('output', path)
 
