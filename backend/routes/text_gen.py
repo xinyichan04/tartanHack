@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, request, session
-from services import deepseek_service
+from flask import Blueprint, jsonify, request, session, url_for
+from services import deepseek_service, audio_service
 import json
 
 text_gen_bp = Blueprint("text_gen", __name__)
@@ -35,12 +35,33 @@ def generate_text():
     description = preferences['description']
     print(meditation_type,tone,sound,description)
 
-
     text = deepseek_service.generate_meditation_text(meditation_type, sound, tone, description)
     
     parsed_data = json.loads(text) 
     message = parsed_data["message"]
-    return message
+
+    print(message)
+
+    text = message
+    output_dir = "static/audio"
+    output_file = "generated_audio.wav"
+
+    # Generate the audio
+    audio_path = audio_service.generate_audio_from_text(text, output_dir, output_file)
+
+    if audio_path is None:
+        return jsonify({"error": "Failed to generate audio."}), 500
+
+    # Get the URL of the file
+    audio_url = url_for("static", filename=f"audio/{output_file}", _external=True)
+    print(audio_url)
+
+    # return message
+    return jsonify({"message": message})
+
+
+
+# we want to return this message somewere. 
 
 # @text_gen_bp.route("/generate", methods=["POST"])
 # def generate_text():
