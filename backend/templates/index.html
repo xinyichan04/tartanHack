@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meditation Experience</title>
-    <link rel="stylesheet" href="visual.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditation Experience</title>
+  <link rel="stylesheet" href="visual.css">
 
 </head>
+
 <body>
 
-    <h1>Welcome to Your Personalized Meditation</h1>
+  <h1>Welcome to Your Personalized Meditation</h1>
 
-    <form id="preferences-form" method="POST" action="/api/text/submit-preferences">
-        <label for="meditation-type">Type of Meditation</label>
-        <select id="meditation-type" name="meditation-type">
-            <option value="relaxation">Relaxation</option>
-            <option value="sleep">Sleep</option>
-            <option value="gratitude">Gratitude</option>
-        </select>
+  <form id="preferences-form" method="POST" action="/api/text/submit-preferences">
+    <label for="meditation-type">Type of Meditation</label>
+    <select id="meditation-type" name="meditation-type">
+      <option value="relaxation">Relaxation</option>
+      <option value="sleep">Sleep</option>
+      <option value="gratitude">Gratitude</option>
+    </select>
 
-        <label for="tone">Tone</label>
-        <select id="tone" name="tone">
-            <option value="calming">Calming</option>
-            <option value="motivational">Motivational</option>
-            <option value="neutral">Neutral</option>
-        </select>
+    <label for="tone">Tone</label>
+    <select id="tone" name="tone">
+      <option value="calming">Calming</option>
+      <option value="motivational">Motivational</option>
+      <option value="neutral">Neutral</option>
+    </select>
 
-        <label for="sound">Background Sound</label>
-        <select id="sound" name="sound">
-            <option value="rain">Rain</option>
-            <option value="ocean">Ocean</option>
-            <option value="birds">Birds</option>
-            <option value="white-noise">White Noise</option>
-        </select>
+    <label for="sound">Background Sound</label>
+    <select id="sound" name="sound">
+      <option value="rain">Rain</option>
+      <option value="ocean">Ocean</option>
+      <option value="birds">Birds</option>
+      <option value="white-noise">White Noise</option>
+    </select>
 
-        <label for="voice">Voice Preference</label>
-        <select id="voice" name="voice">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="robot">Robot</option>
-        </select>
+    <label for="voice">Voice Preference</label>
+    <select id="voice" name="voice">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="robot">Robot</option>
+    </select>
 
-        <label for="meditation-description">What do you want out of your meditation session?:</label>
-        <textarea id="meditation-description" name="meditation-description" rows="4" cols="100" placeholder="Enter your description here..." required></textarea>
+    <label for="meditation-description">What do you want out of your meditation session?:</label>
+    <textarea id="meditation-description" name="meditation-description" rows="4" cols="100"
+      placeholder="Enter your description here..." required></textarea>
 
-        <button type="submit">Generate Meditation</button>
-    </form>
+    <button type="submit">Generate Meditation</button>
+  </form>
 
-<div class="flower-container">
+  <div class="flower-container">
 
     <div class="petal"></div>
     <div class="petal"></div>
@@ -62,9 +65,9 @@
     <div class="flower-center"></div>
 
 
-</div>
+  </div>
 
-<div class="SMflower-container">
+  <div class="SMflower-container">
     <!-- Petals -->
     <div class="SMpetal"></div>
     <div class="SMpetal"></div>
@@ -83,16 +86,16 @@
 
     <!-- Leaves -->
 
-</div>
+  </div>
 
-    <div class="audio-player">
-        <audio id="meditation-audio" controls>
-            <source id="audio-source" src="" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+  <div class="audio-player">
+    <audio id="meditation-audio" controls>
+      <source id="audio-source" src="" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-    <!--<script>
+  <!--<script>
         const form = document.getElementById('preferences-form');
         const audioPlayer = document.querySelector('.audio-player');
         const audioSource = document.getElementById('audio-source');
@@ -117,7 +120,5 @@
     </script-->
 
 </body>
+
 </html>
-
-
-

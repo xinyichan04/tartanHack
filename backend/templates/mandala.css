@@ -1,0 +1,97 @@
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+div.mandala-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 25%;
+  bottom: 15%;
+  transform: scale(1.75);
+}
+
+.mandala-container div.outer-tracer-1 {
+  position: absolute;
+  width: 582px;
+  height: 582px;
+  border-radius: 50%;
+  border: 18px solid black;
+  display: none;
+}
+
+.mandala-container div.outer-tracer-2 {
+  position: absolute;
+  width: 590px;
+  height: 590px;
+  border-radius: 50%;
+  border: 10px solid palevioletred;
+  display: none;
+}
+
+.mandala-container div.outer-tracer-3 {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  border: 60px dotted coral;
+  animation: spin 60s linear infinite;
+  display: none;
+}
+
+.mandala-container div.circle-1-outer {
+  transform: rotate(0deg) translate(0px, 300px);
+}
+
+.mandala-container div.mid-tracer-1 {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  border-radius: 50%;
+  border: 30px solid black;
+}
+
+.mandala-container div.mid-tracer-2 {
+  position: absolute;
+  width: 306px;
+  height: 306px;
+  border-radius: 50%;
+  border: 3px dashed wheat;
+  animation: spin 100s linear infinite reverse;
+}
+
+.mandala-container div.mid-tracer-3 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 10px dotted pink;
+  animation: spin 100s linear infinite;
+}
+
+.mandala-container img.mandala-layer-1 {
+  width: 650px;
+  position: absolute;
+  animation: spin 40s linear infinite reverse;
+}
+
+.mandala-container img.mandala-layer-2 {
+  width: 275px;
+  position: absolute;
+  animation: spin 30s linear infinite reverse;
+}
+
+.mandala-container img.mandala-layer-3 {
+  width: 375px;
+  position: absolute;
+  animation: spin 50s linear infinite;
+}
+
+.mandala-container img.mandala-layer-4 {
+  width: 125px;
+  position: absolute;
+  animation: spin 15s linear infinite;
+}

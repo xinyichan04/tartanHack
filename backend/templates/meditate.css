@@ -1,0 +1,17 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(150deg,#e66465, #9198e5);
+  overflow: hidden;
+}
+
+.bg-watercolor {
+  width: 300px;
+  position: absolute;
+  bottom: -10px;
+  left: 30px;
+  transform: scale(-1,-1) rotate(-155deg);
+}
