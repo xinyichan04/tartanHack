@@ -31,7 +31,8 @@ def generate_audio_from_text(
   ref_audio=None,
   ref_text=None,
   output_dir="tests",
-  output_file="output.wav"
+  output_file="output.wav",
+  mommy=False
 ):
 
   # Ensure the output directory exists
@@ -45,11 +46,12 @@ def generate_audio_from_text(
     config["ref_audio"] = ref_audio
   if ref_text:
     config["ref_text"] = ref_text
+  if mommy:
+    config["ref_audio"] = "mommy_ref.wav"
+    config["output_file"] = "mommy.wav"
 
   # Define the command to run the CLI with appropriate parameters
-  command = [
-    "f5-tts_infer-cli", "-c", toml_file
-  ]
+  command = ["f5-tts_infer-cli", "-c", toml_file]
 
   write_toml(toml_file, config)
 
