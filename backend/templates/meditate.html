@@ -29,6 +29,31 @@
   <img class="mandala-layer-4" src="mandala-layer-4.svg">
 </div>
 <script src="meditate.js"></script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5WBd8CXC75Uyudec1eIIGXyspOyu-7CU",
+    authDomain: "daddy-helps-you-relax.firebaseapp.com",
+    projectId: "daddy-helps-you-relax",
+    storageBucket: "daddy-helps-you-relax.firebasestorage.app",
+    messagingSenderId: "676296372114",
+    appId: "1:676296372114:web:ca6e4d608447f430931b4b",
+    measurementId: "G-EHRQGKQJJF"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 </body>
 
 </html>
