@@ -61,8 +61,3 @@ def generate_audio_from_text(
     print(f"Audio saved to {os.path.join(output_dir, output_file)}")
   except subprocess.CalledProcessError as e:
     print(f"Error during inference: {e}")
-
-
-# toml_file_path = os.path.join(os.getcwd(), "demo.toml")
-
-# generate_audio_from_text(toml_file_path, "Sarah watched the whirlpool mesmerized. She couldn't take her eyes off the water swirling around and around. She stuck in small twigs and leaves to watch the whirlpool catch them and then suck them down. It bothered her more than a little bit that this could also be used as a metaphor for her life.", None, None, output_dir="tests", output_file="babygirl.wav")
