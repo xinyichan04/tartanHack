@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, send_file, render_template, send_from_directory
 from config import Config
 from text_gen import text_gen_bp
 # from routes.text_gen import text_gen_bp
@@ -26,6 +26,14 @@ def home():
 def send_report(path):
     # Using request args for path will expose you to directory traversal attacks
     return send_from_directory('src', path)
+
+@app.route('/tests/<path:filename>')
+def serve_tests(filename):
+    return send_from_directory('tests', filename)
+
+@app.route('/test')
+def test():
+    return send_file('src/audio.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
