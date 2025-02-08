@@ -14,18 +14,22 @@ app.register_blueprint(text_gen_bp, url_prefix="/api/text")
 
 @app.route('/')
 def home():
-  return render_template('src/index.html')
+  return render_template('src/home.html')
 
 
 @app.route('/<path:path>')
 def send_report(path):
-  # Using request args for path will expose you to directory traversal attacks
-  return send_from_directory('src', path)
+  try:
+    return send_from_directory('src', path)
+  except Exception as e:
+    return send_from_directory('src', path + ".html")
+
 
 @app.route('/output/<path:path>')
 def send_audio_output(path):
   # Using request args for path will expose you to directory traversal attacks
   return send_from_directory('output', path)
+
 
 if __name__ == "__main__":
   app.run(debug=True)
