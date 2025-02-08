@@ -16,22 +16,25 @@ gender.addEventListener("click", clickHandler.bind(null, gender));
 document.getElementsByClassName("start")[0].addEventListener("click", () => {
 	fetch("/api/text/submit-preferences", {
 		method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+		headers: {
+			"Content-Type": "application/json",
+		},
 		body: JSON.stringify({
 			environment: env
 				.querySelector(".selected")
 				.className.split("selected")
-				.filter((el) => el.trim() !== "")[0],
+				.filter((el) => el.trim() !== "")[0]
+				.trim(),
 			goal: goal
 				.querySelector(".selected")
 				.className.split("selected")
-				.filter((el) => el.trim() !== "")[0],
+				.filter((el) => el.trim() !== "")[0]
+				.trim(),
 			gender: gender
 				.querySelector(".selected")
 				.className.split("selected")
-				.filter((el) => el.trim() !== "")[0],
+				.filter((el) => el.trim() !== "")[0]
+				.trim(),
 		}),
 	});
 });
