@@ -4,5 +4,5 @@ ref_text = "Some call me nature, others call me mother nature."
 gen_text = "hi. this is a test"
 gen_file = ""
 remove_silence = true
-output_dir = ""
-output_file = "output.wav"
+output_dir = "output"
+output_file = "daddy.wav"
