@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Experience</title>
+    <link rel="stylesheet" href="visual.css">
+</head>
+<body>
+
+    <h1>Welcome to Your Personalized Meditation</h1>
+
+    <form id="preferences-form">
+        <label for="meditation-type">Type of Meditation</label>
+        <select id="meditation-type" name="meditation-type">
+            <option value="relaxation">Relaxation</option>
+            <option value="sleep">Sleep</option>
+            <option value="gratitude">Gratitude</option>
+        </select>
+
+        <label for="tone">Tone</label>
+        <select id="tone" name="tone">
+            <option value="calming">Calming</option>
+            <option value="motivational">Motivational</option>
+            <option value="neutral">Neutral</option>
+        </select>
+
+        <label for="sound">Background Sound</label>
+        <select id="sound" name="sound">
+            <option value="rain">Rain</option>
+            <option value="ocean">Ocean</option>
+            <option value="birds">Birds</option>
+            <option value="white-noise">White Noise</option>
+        </select>
+
+        <label for="voice">Voice Preference</label>
+        <select id="voice" name="voice">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="robot">Robot</option>
+        </select>
+
+        <button type="submit">Generate Meditation</button>
+    </form>
+
+    <div class="audio-player">
+        <audio id="meditation-audio" controls>
+            <source id="audio-source" src="" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const form = document.getElementById('preferences-form');
+        const audioPlayer = document.querySelector('.audio-player');
+        const audioSource = document.getElementById('audio-source');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const meditationType = document.getElementById('meditation-type').value;
+            const tone = document.getElementById('tone').value;
+            const sound = document.getElementById('sound').value;
+            const voice = document.getElementById('voice').value;
+
+            // Here, you would make an API call to your backend to generate the content
+            // For now, let's assume the response URL is returned
+            const responseUrl = `/path/to/generated/meditation.mp3`; // Example response
+
+            // Show audio player and update the source
+            audioSource.src = responseUrl;
+            audioPlayer.style.display = 'block';
+            document.getElementById('meditation-audio').load();
+        });
+    </script>
+
+</body>
+</html>
