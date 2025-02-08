@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, request, session, url_for
-from services import deepseek_service, audio_service
+from flask import Blueprint, jsonify, request, session, url_for, app
+import deepseek_service, audio_service
 import json
 import os
 
