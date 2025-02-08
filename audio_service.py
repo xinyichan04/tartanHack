@@ -1,8 +1,17 @@
 import os
+import random
 import subprocess
 import tomllib
 
 import toml
+
+# def generate_background_noise(noise_type="rain", duration=60):
+#     noises = {
+#         "rain": "https://example.com/audio/rain.mp3",
+#         "waves": "https://example.com/audio/waves.mp3",
+#         "fireplace": "https://example.com/audio/fireplace.mp3"
+#     }
+#     return noises.get(noise_type, "https://example.com/audio/default.mp3")
 
 
 def read_toml(file_path):
@@ -17,8 +26,14 @@ def write_toml(file_path, data):
 
 
 def generate_audio_from_text(
-  toml_file, gen_text=None, ref_audio=None, ref_text=None, output_dir="tests", output_file="output.wav"
+  toml_file=os.path.join(os.getcwd(), "demo.toml"),
+  gen_text=None,
+  ref_audio=None,
+  ref_text=None,
+  output_dir="tests",
+  output_file="output.wav"
 ):
+
   # Ensure the output directory exists
   os.makedirs(output_dir, exist_ok=True)
 
@@ -48,13 +63,6 @@ def generate_audio_from_text(
     print(f"Error during inference: {e}")
 
 
-toml_file_path = os.path.join(os.getcwd(), "demo.toml")
+# toml_file_path = os.path.join(os.getcwd(), "demo.toml")
 
-generate_audio_from_text(
-  toml_file_path,
-  "Sarah watched the whirlpool mesmerized. She couldn't take her eyes off the water swirling around and around. She stuck in small twigs and leaves to watch the whirlpool catch them and then suck them down. It bothered her more than a little bit that this could also be used as a metaphor for her life.",
-  None,
-  None,
-  output_dir="tests",
-  output_file="babygirl.wav"
-)
+# generate_audio_from_text(toml_file_path, "Sarah watched the whirlpool mesmerized. She couldn't take her eyes off the water swirling around and around. She stuck in small twigs and leaves to watch the whirlpool catch them and then suck them down. It bothered her more than a little bit that this could also be used as a metaphor for her life.", None, None, output_dir="tests", output_file="babygirl.wav")
