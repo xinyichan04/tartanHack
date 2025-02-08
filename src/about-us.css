@@ -35,7 +35,8 @@ div.menu {
   box-sizing: border-box;
   background-color: #9a4c95;
   color: white;
-  box-shadow: 0 2px 15px black;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensures the menu stays on top */
 }
 
 div.spacer {
@@ -80,11 +81,16 @@ div.spacer {
 /* Container */
 .container {
   max-width: 1100px;
-  background: white;
+  background: #fff;
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+  transform: translateY(-10px); /* Subtle hover effect */
 }
 
 /* About Content */
@@ -92,55 +98,77 @@ div.spacer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+  justify-content: center;
+  flex-direction: row-reverse; /* Switch the order: photo to the left, text to the right */
+  position: relative; /* This allows the image and text to overlap */
+  margin-left: 10px; /* Minor tweak for positioning */
 }
 
 /* Text Section */
 .about-text {
   flex: 1;
   min-width: 300px;
+  padding: 10px;
+  margin-left: -40px; /* Bring the text closer to the image */
+  z-index: 2; /* Ensure the text stays on top */
 }
 
 .about-text h1 {
-  font-size: 32px;
-  color: #222;
-  margin-bottom: 10px;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .about-text p {
   font-size: 18px;
-  color: #555;
-  margin-bottom: 15px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 /* Image Section */
 .about-image {
   flex: 1;
   text-align: center;
+  position: relative;
+  z-index: 1; /* Ensures the image stays behind the text */
 }
 
 .about-image img {
-  max-width: 100%;
+  max-width: 190%; /* Increase image size */
   height: auto;
+  transition: transform 0.3s ease-in-out;
+  margin-left: -30px; /* Adjust image positioning */
+  margin-top: -100px;
+}
+
+.about-image img:hover {
+  transform: scale(1.05); /* Subtle zoom effect on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-content {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column; /* Stack the content vertically for smaller screens */
+    text-align: center;
   }
 
   .about-text {
-      padding: 10px;
+    padding: 10px;
+    margin-left: 0; /* Reset margin */
   }
 
   .about-image img {
-      width: 80%;
+    width: 100%;
+    margin-left: 0;
   }
 
   .menu div {
-      font-size: 16px;
-      padding: 5px 15px;
+    font-size: 16px;
+    padding: 5px 15px;
   }
 }
