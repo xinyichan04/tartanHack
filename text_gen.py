@@ -1,71 +1,79 @@
-from flask import Blueprint, jsonify, request, session, url_for, app
-import deepseek_service, audio_service
 import json
 import os
+
+from flask import Blueprint, app, jsonify, request, session, url_for
+
+import audio_service
+import deepseek_service
 
 text_gen_bp = Blueprint("text_gen", __name__)
 
 
-@text_gen_bp.route("/submit-preferences", methods = ["POST"])
+@text_gen_bp.route("/submit-preferences", methods=["POST"])
 def submit_pref():
-    #wonder if theres faster way to loop through
-    meditation_type = request.form.get('meditation-type')
-    tone = request.form.get('tone')
-    sound = request.form.get('sound')
-    med_description = request.form.get('meditation-description')
-    print(f"SUBMIT PREF\n{meditation_type, sound, tone, med_description}")
-    
-    # print(meditation_type)
-    session['preferences'] = {
-        'meditation_type': meditation_type,
-        'tone': tone,
-        'sound': sound,
-        'description': med_description
-    }
-    return "submit-pref"
+  #wonder if theres faster way to loop through
+  meditation_type = request.form.get('meditation-type')
+  tone = request.form.get('tone')
+  sound = request.form.get('sound')
+  med_description = request.form.get('meditation-description')
+  print(f"SUBMIT PREF\n{meditation_type, sound, tone, med_description}")
 
-@text_gen_bp.route("/generate", methods =['GET'])
+  # print(meditation_type)
+  session['preferences'] = {
+    'meditation_type': meditation_type,
+    'tone': tone,
+    'sound': sound,
+    'description': med_description
+  }
+  return "submit-pref"
+
+
+@text_gen_bp.route("/generate", methods=['GET'])
 def generate_text():
-    preferences = session.get('preferences')
-    if not preferences:
-        return jsonify({"error": "Preferences not set. Submit preferences first."}), 400
-    
-    meditation_type = preferences['meditation_type']
-    tone = preferences['tone']
-    sound = preferences['sound']
-    description = preferences['description']
-    print(meditation_type,tone,sound,description)
+  preferences = session.get('preferences')
+  if not preferences:
+    return jsonify({
+      "error": "Preferences not set. Submit preferences first."
+    }), 400
 
-    # text = deepseek_service.generate_meditation_text(meditation_type, sound, tone, description)
-    
-    # parsed_data = json.loads(text) 
-    # message = parsed_data["message"]
-    message = "hi. this is a test"
+  meditation_type = preferences['meditation_type']
+  tone = preferences['tone']
+  sound = preferences['sound']
+  description = preferences['description']
+  print(meditation_type, tone, sound, description)
 
-    print(message)
+  # text = deepseek_service.generate_meditation_text(meditation_type, sound, tone, description)
 
-    text = message
-    output_dir = "static/audio"
-    output_file = "generated_audio.wav"
+  # parsed_data = json.loads(text)
+  # message = parsed_data["message"]
+  message = "hi. this is a test"
 
-    # Generate the audio
-    # audio_path = audio_service.generate_audio_from_text(text, output_dir, output_file)
-    audio_path = audio_service.generate_audio_from_text(toml_file = os.path.join(os.getcwd(), "demo.toml"),
-                                gen_text=text)   
-    print(audio_path)
-    if audio_path is None:
-        return jsonify({"error": "Failed to generate audio."}), 500
+  print(message)
 
-    # Get the URL of the file
-    # audio_url = url_for("static", filename=f"audio/{output_file}", _external=True)
-    # print(audio_url)
+  text = message
+  output_dir = "static/audio"
+  output_file = "generated_audio.wav"
 
-    # return message
-    return jsonify({"message": message})
+  # Generate the audio
+  # audio_path = audio_service.generate_audio_from_text(text, output_dir, output_file)
+  audio_path = audio_service.generate_audio_from_text(toml_file=os.path.join(os.getcwd(), "demo.toml"), gen_text=text)
+  print(audio_path)
+  if audio_path is None:
+    return jsonify({
+      "error": "Failed to generate audio."
+    }), 500
+
+  # Get the URL of the file
+  # audio_url = url_for("static", filename=f"audio/{output_file}", _external=True)
+  # print(audio_url)
+
+  # return message
+  return jsonify({
+    "message": message
+  })
 
 
-
-# we want to return this message somewere. 
+# we want to return this message somewere.
 
 # @text_gen_bp.route("/generate", methods=["POST"])
 # def generate_text():
