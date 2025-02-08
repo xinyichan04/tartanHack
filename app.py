@@ -1,6 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 from config import Config
-from routes.text_gen import text_gen_bp
+from backend.text_gen import text_gen_bp
 from routes.tts import tts_bp
 from routes.audio_gen import audio_gen_bp
 from routes.user import user_bp
@@ -23,7 +23,7 @@ def home():
 @app.route('/<path:path>')
 def send_report(path):
     # Using request args for path will expose you to directory traversal attacks
-    return send_from_directory('templates', path)
+    return send_from_directory('src', path)
 
 if __name__ == "__main__":
     app.run(debug=True)
