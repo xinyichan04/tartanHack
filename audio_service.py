@@ -49,8 +49,6 @@ def generate_audio_from_text(
   # Define the command to run the CLI with appropriate parameters
   command = [
     "f5-tts_infer-cli", "-c", toml_file
-    # "--output_dir", output_dir,
-    # "--output_file", output_file
   ]
 
   write_toml(toml_file, config)
