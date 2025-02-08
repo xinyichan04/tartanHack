@@ -10,7 +10,7 @@
 
     <h1>Welcome to Your Personalized Meditation</h1>
 
-    <form id="preferences-form">
+    <form id="preferences-form" method="POST" action="/api/text/submit-preferences">
         <label for="meditation-type">Type of Meditation</label>
         <select id="meditation-type" name="meditation-type">
             <option value="relaxation">Relaxation</option>
@@ -40,6 +40,9 @@
             <option value="robot">Robot</option>
         </select>
 
+        <label for="meditation-description">What do you want out of your meditation session?:</label>
+        <textarea id="meditation-description" name="meditation-description" rows="4" cols="50" placeholder="Enter your description here..." required></textarea>
+
         <button type="submit">Generate Meditation</button>
     </form>
 
@@ -50,7 +53,7 @@
         </audio>
     </div>
 
-    <script>
+    <!--<script>
         const form = document.getElementById('preferences-form');
         const audioPlayer = document.querySelector('.audio-player');
         const audioSource = document.getElementById('audio-source');
@@ -65,14 +68,14 @@
 
             // Here, you would make an API call to your backend to generate the content
             // For now, let's assume the response URL is returned
-            const responseUrl = `/path/to/generated/meditation.mp3`; // Example response
+            //const responseUrl = `/path/to/generated/meditation.mp3`; // Example response
 
             // Show audio player and update the source
-            audioSource.src = responseUrl;
-            audioPlayer.style.display = 'block';
-            document.getElementById('meditation-audio').load();
+            //audioSource.src = responseUrl;
+            //audioPlayer.style.display = 'block';
+            //document.getElementById('meditation-audio').load();
         });
-    </script>
+    </script-->
 
 </body>
 </html>

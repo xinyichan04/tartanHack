@@ -16,6 +16,10 @@ app.register_blueprint(tts_bp, url_prefix="/api/tts")
 app.register_blueprint(audio_gen_bp, url_prefix="/api/audio")
 app.register_blueprint(user_bp, url_prefix="/api/user")
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 @app.route('/<path:path>')
 def send_report(path):
     # Using request args for path will expose you to directory traversal attacks
