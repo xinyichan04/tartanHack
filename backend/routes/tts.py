@@ -1,5 +1,5 @@
 # from flask import Blueprint, jsonify
-# from services import audio_service 
+from routes import audio_service 
 
 
 # @tts_bp.route("/convert", methods=["POST"])
@@ -17,7 +17,7 @@
 
 from flask import Blueprint, request, jsonify, send_file, url_for
 import os
-from services import audio_service
+#import text_gen
 
 tts_bp = Blueprint("tts", __name__)
 
@@ -38,6 +38,7 @@ def convert_text():
     # Generate the audio
     audio_path = audio_service.generate_audio_from_text(text, output_dir, output_file)
 
+    print("hello")
     if audio_path is None:
         return jsonify({"error": "Failed to generate audio."}), 500
 
