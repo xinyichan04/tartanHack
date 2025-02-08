@@ -1,7 +1,7 @@
 model = "E2-TTS"
-ref_audio = "infer/examples/basic/basic_ref_en.wav"
-ref_text = "Some call me nature, others call me mother nature."
-gen_text = "hi. this is a test"
+ref_audio = "daddy-ref.wav"
+ref_text = "Everything else is not evaluated in parallel. Here are some examples to help. Assume we have some functions, foo and bar. Then each of the following lines will be stating whether foo and bar."
+gen_text = "hi. this is a test. potato."
 gen_file = ""
 remove_silence = true
 output_dir = "output"
